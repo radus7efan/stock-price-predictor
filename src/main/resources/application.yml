@@ -1,3 +1,6 @@
+server:
+  port: 8182
+
 spring:
   application:
-    name: stock-price-predictor
+    name: stock-price-predictorx
