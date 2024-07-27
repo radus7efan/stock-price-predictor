@@ -12,12 +12,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -36,28 +38,27 @@ public class StockPriceController {
     @ApiResponse(responseCode = "500", description = "Internal server error.", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = StockPricePredictorError.class))
     })
-    public ResponseEntity<List<StockPriceDto>> getStockPrice(@Validated(StockExchange.class)
-                                                             @RequestParam StockExchange exchange,
-                                                             @RequestParam(required = false) Date timestamp
+    public ResponseEntity<Map<String, List<StockPriceDto>>> getStockPrices(
+            @Validated(StockExchange.class) @RequestParam(required = false) StockExchange exchange,
+            @RequestParam(required = false) String stockName,
+            @RequestParam(required = false) String timestamp
     ) {
         return new ResponseEntity<>(
-                stockPriceService.getStockPrice(exchange, timestamp),
+                stockPriceService.getStockPrices(exchange, stockName, timestamp),
                 HttpStatus.OK
         );
     }
 
-    @GetMapping("/predict")
+    @PostMapping("/predict")
     @ApiResponse(responseCode = "200", description = "Successful operation", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = StockPriceDto.class))
     })
     @ApiResponse(responseCode = "500", description = "Internal server error.", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = StockPricePredictorError.class))
     })
-    public ResponseEntity<List<StockPriceDto>> getPredictedPrices(@RequestParam(defaultValue = "3", required = false)
-                                                                  Integer numberOfPredictions
-    ) {
+    public ResponseEntity<List<StockPriceDto>> getPredictedPrices(@RequestBody List<StockPriceDto> stockPrices) {
         return new ResponseEntity<>(
-                stockPriceService.predictPrices(numberOfPredictions),
+                stockPriceService.predictPrices(stockPrices),
                 HttpStatus.OK
         );
     }
