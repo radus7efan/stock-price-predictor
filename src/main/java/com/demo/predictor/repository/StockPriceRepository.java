@@ -69,13 +69,13 @@ public interface StockPriceRepository extends CrudRepository<Stock, Long> {
      * Find first 10 stock prices for a specific stock name starting from a given timestamp.
      */
     @Query(value = """
-             SELECT new s.name,
+             SELECT s.name,
                     s.exchange_name,
                     p.price_value,
                     p.timestamp
              FROM   stock s,
                     price p
-             WHERE s.name = ?2 AND s.id = p.stock_id AND p.timestamp >= ?3
+             WHERE s.name = ?1 AND s.id = p.stock_id AND p.timestamp >= ?2
              LIMIT 10;
             """,
             nativeQuery = true)
