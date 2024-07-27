@@ -2,7 +2,7 @@
 <div align="center">
 
  <a href=".">![GitHub contributors](https://img.shields.io/github/contributors/radus7efan/store-management-tool)</a>
- <a href=".">![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/radus7efan/store-management-tool)</a>
+ <a href=".">![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/radus7efan/stock-price-predictor)</a>
 </div>
 
 <div>
