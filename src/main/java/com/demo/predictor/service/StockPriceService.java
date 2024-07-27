@@ -135,7 +135,7 @@ public class StockPriceService {
      * - third element has the price = second_price +|- |second_price - first_price| / 4
      * Timestamps for each price are consecutive days starting from the last price value in the input dataset.
      * </p>
-     * For the second and third prices, the operation (add or subtract) is randomly decided.
+     * For the second and third prices, the operation (add or subtract of the difference) is randomly decided.
      */
     private List<StockPriceDto> predictFuturePrices(StockPriceDto priceN, StockPriceDto secondHighPrice) {
         var priceDif = Math.abs(priceN.price() - secondHighPrice.price()) / 2;

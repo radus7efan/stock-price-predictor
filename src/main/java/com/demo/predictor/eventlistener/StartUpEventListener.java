@@ -1,6 +1,5 @@
 package com.demo.predictor.eventlistener;
 
-import com.demo.predictor.StockPricePredictorApplication;
 import com.demo.predictor.domain.enums.StockExchange;
 import com.demo.predictor.domain.model.Price;
 import com.demo.predictor.domain.model.Stock;
@@ -17,7 +16,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -85,7 +83,7 @@ public class StartUpEventListener implements ApplicationListener<ContextRefreshe
      * @return List of file names for the specified exchange, no longer than maxSize.
      */
     private List<String> getInputFilesForExchange(StockExchange exchange, Integer maxSize) {
-        var exchangeFolderURL = StockPricePredictorApplication.class.getResource(INPUT_PATH.formatted(exchange));
+        var exchangeFolderURL = StartUpEventListener.class.getResource(INPUT_PATH.formatted(exchange));
 
         if (exchangeFolderURL == null) {
             return List.of();

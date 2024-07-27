@@ -173,7 +173,7 @@ What you need to run this application locally:
 
 3. Run the appplication
    ```sh
-   java -jar target/stock-price-predictor-0.0.1-SNAPSHOT.jar 2
+   mvn exec:java -Dexec.mainClass="com.demo.predictor.StockPricePredictorApplication" -Dexec.args="2"
    ```
 4. After the application starts, you will be able to call any of the exposed endpoints using the base path:
     ```rest
