@@ -44,7 +44,7 @@
 
 - The prediction algorithm is the one suggested, with the only change that for the second and third prices, the operation (add or subtract of the difference) is randomly decided.
 
-  * first predicted (`n+1`) data point is same as the second highest value present in the 10 data points
+  * first predicted (`n+1`) data point is same as the second-highest value present in the 10 data points
   * `n+2` data point has half the difference between `n` and `n+1`
   * `n+3` data point has 1/4th the difference between `n+1` and `n+2`
 
@@ -182,9 +182,9 @@ What you need to run this application locally:
     Examples:
     ```rest
     GET http://localhost:8182/api/v1/stock-price/prices
-    GET http://localhost:8182/api/v1/stock-price/prices?exchanges=LSE
-    GET http://localhost:8182/api/v1/stock-price/prices?exchanges=LSE&timestamp=01-01-2023
-    GET http://localhost:8182/api/v1/stock-price/prices?exchanges=LSE&stockName=FLTR&timestamp=01-01-2023
+    GET http://localhost:8182/api/v1/stock-price/prices?exchange=LSE
+    GET http://localhost:8182/api/v1/stock-price/prices?exchange=LSE&timestamp=01-01-2023
+    GET http://localhost:8182/api/v1/stock-price/prices?exchange=LSE&stockName=FLTR&timestamp=01-01-2023
     PSOT http://localhost:8182/api/v1/stock-price/predict
     ```
 
