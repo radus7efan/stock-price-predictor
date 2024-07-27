@@ -185,7 +185,7 @@ What you need to run this application locally:
     GET http://localhost:8182/api/v1/stock-price/prices?exchange=LSE
     GET http://localhost:8182/api/v1/stock-price/prices?exchange=LSE&timestamp=01-01-2023
     GET http://localhost:8182/api/v1/stock-price/prices?exchange=LSE&stockName=FLTR&timestamp=01-01-2023
-    PSOT http://localhost:8182/api/v1/stock-price/predict
+    POST http://localhost:8182/api/v1/stock-price/predict
     ```
 
 ### How to play
