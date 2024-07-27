@@ -38,7 +38,7 @@
 
 <br>
 
-- For the persisting layer the application uses a h2 in memory database to store stock prices.
+- For the persisting layer the application uses a `h2` in memory database to store stock prices.
 
 <br>
 
