@@ -1,9 +1,14 @@
 package com.demo.predictor.domain.model;
 
-import lombok.Builder;
+import java.time.LocalDate;
 
-import java.util.Date;
+public interface StockPrice {
 
-@Builder
-public record StockPrice(String stockId, Date timestamp, Double price) {
+    String getName();
+
+    String getExchangeName();
+
+    Double getPriceValue();
+
+    LocalDate getTimestamp();
 }

@@ -2,8 +2,8 @@ package com.demo.predictor.domain.dto;
 
 import lombok.Builder;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Builder
-public record StockPriceDto(String stockId, Date timestamp, Double price) {
+public record StockPriceDto(String stockId, LocalDate timestamp, Double price) {
 }
