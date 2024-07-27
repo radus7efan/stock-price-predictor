@@ -198,7 +198,7 @@ public class StockPriceService {
             var outputPath = StockPriceService.class.getResource(OUTPUT_PATH + exchange);
             if (outputPath == null) {
                 boolean isDirCreated =
-                        new File(StockPriceService.class.getResource("/").getPath() + OUTPUT_PATH + exchange).mkdir();
+                        new File(StockPriceService.class.getResource("/").getPath() + OUTPUT_PATH + exchange).mkdirs();
 
                 if (!isDirCreated) {
                     log.error("Could not create directory for exchange: {}. The output was not saved.", exchange);
